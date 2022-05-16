@@ -1,2 +1,2 @@
 # EVE_annotation
-workflow EVE annotation
+Workflow for Endogenous viral elements (EVE) annotation in host Genomes 
