@@ -73,19 +73,15 @@ We acknowledge the people involved in generating the genome assembly data for th
 Contributions to the EVE Detection Tool are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request in the GitHub repository.
 
 ## License 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6554302.svg)](https://doi.org/10.5281/zenodo.6554302)
 
 
 ## References
-
 [^1]: Buchfink, B., Xie, C., & Huson, D. H. (2015). Fast and sensitive protein alignment using DIAMOND. Nature Methods, 12(1), 59-60. [DOI: 10.1038/nmeth.3176](https://doi.org/10.1038/nmeth.3176)
-
 [^2]: Quinlan, A. R., & Hall, I. M. (2010). BEDTools: a flexible suite of utilities for comparing genomic features. Bioinformatics, 26(6), 841-842. [DOI: 10.1093/bioinformatics/btq033](https://doi.org/10.1093/bioinformatics/btq033)
-
 [^3]: R Core Team (2021). R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria. [URL: https://www.R-project.org/](https://www.R-project.org/)
-
 [^4]: Python Software Foundation. (2021). Python Language Reference, version 3.9.6. [URL: https://www.python.org/](https://www.python.org/)
 
 
