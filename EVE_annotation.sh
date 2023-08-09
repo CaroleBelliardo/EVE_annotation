@@ -1,28 +1,31 @@
 #!/bin/bash
 
-#-- inputs files 
-db1=$1 # only viral protein from nr without retrovirus sequences
-db2=$2      # all nr proteins
-hostFasta=$3
+# Input files
+db1=$1 # Viral proteins from nr without retrovirus sequences <fasta/prot>
+db2=$2 # NR-NCBI proteins <fasta/prot>
+hostFasta=$3 # host genome <fasta/nucl>
 
-host_dmd1=$(echo $3 | cut -d'.' -f1).dmd1
-host_bed1=$(echo $3 | cut -d'.' -f1).bed1
-host_dmdFasta1=$(echo $3 | cut -d'.' -f1).fasta1
+# Filenames for intermediate files
+host_dmd1=dmd1_$(basename "$hostFasta" | cut -d'.' -f1).dmd
+host_bed1=dmd1_$(basename "$hostFasta" | cut -d'.' -f1).bed
+host_dmdFasta1dmd1_=$(basename "$hostFasta" | cut -d'.' -f1).fasta
 
-host_dmd2=$(echo $3 | cut -d'.' -f1).dmd2
-host_bed2=$(echo $3 | cut -d'.' -f1).bed2
+host_dmd2=dmd2_$(basename "$hostFasta" | cut -d'.' -f1).dmd
+host_bed2=dmd2_$(basename "$hostFasta" | cut -d'.' -f1).bed
 
-#-- run tools
-diamond blastx --more-sensitive --max-target-seqs 1000 --range-culling --min-score 40 --outfmt 6 -b 30 -c 1 -d $db1 -q $hostFasta -o $host_dmd1 # diamond 0.9.21 
+# Run Diamond for the first step
+diamond blastx --more-sensitive --max-target-seqs 1000 --range-culling --min-score 40 --outfmt 6 -b 30 -c 1 -d "$db1" -q "$hostFasta" -o "$host_dmd1" 
 
-python3 bestHitsToFasta.py $host_dmd1 $host_bed1 # custom python3 script 
+# Run custom Python script
+python3 bestHitsToFasta.py "$host_dmd1" "$host_bed1" 
 
-bedtools getfasta -fi $hostFasta -bed $host_bed1 -fo $host_dmdFasta1 # cut genomic region which have a viral best hit
+# Extract genomic regions with viral best hits
+bedtools getfasta -fi "$hostFasta" -bed "$host_bed1" -fo "$host_dmdFasta1"
 
-diamond blastx --more-sensitive --max-target-seqs 1000  --range-culling  --min-score 40 --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore stitle -b 30 -c 1 -d $db2 -q $host_dmdFasta1 -o $host_dmd2
+# Run Diamond for the second step
+diamond blastx --more-sensitive --max-target-seqs 1000  --range-culling  --min-score 40 --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore stitle -b 30 -c 1 -d "$db2" -q "$host_dmdFasta1" -o "$host_dmd2"
 
-# taxonomizR
 
-Rscript --vanilla absolutCoord.R $host_dmd2 $host_bed2
-
-# script clement
+# Run taxonomizR
+Rscript --vanilla absolutCoord.R "$host_dmd2" "$host_bed2"
+Rscript --vanilla Get_EVE_annoation_summary.r # Adapt path in Rscript file
