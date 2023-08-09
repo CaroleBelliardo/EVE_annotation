@@ -1,6 +1,6 @@
-# Identification of endogenous viral elements (EVEs) in host genome 
+# Identification of endogenous viral elements (EVE) in host genome 
 ### Purpose
-The EVE_annotation scripts is developed to identify Endogenous Viral Elements (EVEs) within genomic sequences. It takes advantage of several established bioinformatics tools and custom scripts to accurately annotate and analyze potential EVEs.
+The EVE_annotation scripts is developed to identify Endogenous Viral Elements (EVE) within genomic sequences. It takes advantage of several established bioinformatics tools and custom scripts to accurately annotate and analyze potential EVEs.
 
 ### Table of Contents
 - [Purpose](#purpose)
