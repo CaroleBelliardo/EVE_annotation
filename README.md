@@ -1,5 +1,8 @@
 # Identification of endogenous viral elements (EVE) in host genome 
-## Table of Contents
+### Purpose
+The EVE_annotation scripts is developed to identify Endogenous Viral Elements (EVEs) within genomic sequences. It takes advantage of several established bioinformatics tools and custom scripts to accurately annotate and analyze potential EVEs.
+
+### Table of Contents
 - [Purpose](#purpose)
 - [Installation](#installation)
 - [Dependencies](#dependencies)
@@ -8,8 +11,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-### Purpose
-The EVE_annotation scripts is developed to identify Endogenous Viral Elements (EVEs) within genomic sequences. It takes advantage of several established bioinformatics tools and custom scripts to accurately annotate and analyze potential EVEs.
+
 
 ## Installation
 Clone this repository to your local machine and provide necessary permissions to the scripts using the following commands:
@@ -28,7 +30,7 @@ wget -Nc -o wgetNRfasta.log 'ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nr.gz'
 gzip -d nr.gz
 chmod 775 nr
 ```
-### Dependencies ###
+### Dependencies 
 The EVE Detection Tool relies on the following external tools and libraries:
 - [Diamond](https://github.com/bbuchfink/diamond): A sequence aligner for protein and translated DNA searches [^1].
 - [Bedtools](https://bedtools.readthedocs.io/en/latest/): A powerful toolset for genome arithmetic[^2].
@@ -60,29 +62,18 @@ The EVE annotation directory consists of the following scripts:
     * addFamily.py: Python script to add family information to EVE annotations.
 
 
-
-
-### Contributing ###
-Contributions to the EVE Detection Tool are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request in the GitHub repository.
-
-### Authors ###
+## Authors 
 * Carole Belliardo: carole.belliardo@inrae.fr
 * Clément Gilbert: clement.gilbert1@universite-paris-saclay.fr
 
+### Acknowlegements 
+We acknowledge the people involved in generating the genome assembly data for their publications and for making the data publicly available. We also would like to acknowledge members of the ITN Insect Doctors consortium and the current members of IRBI who provided some feedback throughout the study. 
 
+### Contributing 
+Contributions to the EVE Detection Tool are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request in the GitHub repository.
 
-### Funding ###
-This work was supported by the plant heath and environment departement of the INRAe and MYCOPHYTO sas.  
-
-
-### Acknowlegements ###
-We acknowledge the people involved in generating the transcriptomic and genome assembly data for their publications and for making the data publicly available. We also would like to acknowledge members of the ITN Insect Doctors consortium and the current members of IRBI who provided some feedback throughout the study. 
-
-### License ###
-
+## License 
 This project is licensed under the MIT License.
-
-
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6554302.svg)](https://doi.org/10.5281/zenodo.6554302)
 
